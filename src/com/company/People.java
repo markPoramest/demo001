@@ -1,10 +1,12 @@
 package com.company;
 
 public class People {
-    String name;
-    boolean sex;
-    int age;
-    String nationality;
+    private String name; //getter setter
+    private boolean sex; //getter
+    private int age; //setter getter
+    private String nationality; //getter
+    private String nationalID; //getter
+    private String[] subject;
     public  People(String name){
         this.name = name;
         this.sex = true;
@@ -16,18 +18,18 @@ public class People {
         this.age = age;
         nationality = " ";
     }
-    public People(String name , boolean sex , int age , String nationality){
+    public People(String name , boolean sex , int age , String nationality, String ID){
         this.name = name;
         this.sex = sex;
         this.age = age;
         this.nationality = nationality;
-        introduce();
+        this.nationalID = ID;
     }
 
-    void introduce(){
+    public void introduce(){
         System.out.println("I'm "+name);
     }
-    String calculateAge(int age){
+    public String calculateAge(int age){
        if(this.age == age){
             return "We are same age";
        }
@@ -37,5 +39,29 @@ public class People {
        else{
            return "I'm younger than you";
        }
+    }
+    public String getName(){
+        return this.name;
+    }
+    public void setName(String name1){
+        name = name1;
+    }
+    public boolean getSex(){
+        return  this.sex;
+    }
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public String getNationalID() {
+        return nationalID;
     }
 }
