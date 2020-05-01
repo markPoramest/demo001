@@ -1,33 +1,43 @@
 package com.company;
 
-public class People {
-    private String name; //getter setter
-    private boolean sex; //getter
-    private int age; //setter getter
+public class People extends Mammal implements Work{
     private String nationality; //getter
     private String nationalID; //getter
+    private int salary;
     private String[] subject;
-    public  People(String name){
-        this.name = name;
-        this.sex = true;
-        this.age = 25;
-    }
-    public People(String name, boolean sex, int age) {
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
-        nationality = " ";
-    }
-    public People(String name , boolean sex , int age , String nationality, String ID){
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
+
+    public People(String name, boolean sex, int age , String nationality , String nationalID , int salary) {
+        super(name, sex, age);
         this.nationality = nationality;
-        this.nationalID = ID;
+        this.nationalID = nationalID;
+        this.salary = salary;
+        subject = new String[2];
     }
 
-    public void introduce(){
-        System.out.println("I'm "+name);
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    void introduce(){
+        System.out.println("I'm people");
+    }
+
+    @Override
+    void walk() {
+        System.out.println("I'm walking with 2 legs");
+    }
+
+    @Override
+    void eat() {
+        System.out.println("I'm eat breakfast");
+    }
+
+    void introduceMammal(){
+        super.introduce();
     }
     public String calculateAge(int age){
        if(this.age == age){
@@ -63,5 +73,10 @@ public class People {
 
     public String getNationalID() {
         return nationalID;
+    }
+
+    @Override
+    public int working() {
+        return salary*12;
     }
 }
